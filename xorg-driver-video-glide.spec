@@ -9,28 +9,28 @@ Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-glide
 # Source0-md5:	a2d71a92bc92a493579da59ea0324a45
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Glide2x_SDK
-BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	libdrm-devel >= 2.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
-BuildRequires:	xorg-proto-videoproto-devel
-BuildRequires:	xorg-proto-xf86dgaproto-devel
-BuildRequires:	xorg-proto-xf86driproto-devel
+BuildRequires:	xorg-proto-xextproto-devel
 BuildRequires:	xorg-util-util-macros >= 0.99.2
 BuildRequires:	xorg-xserver-server-devel >= 1.0.99.901
 Requires:	xorg-xserver-server >= 1.0.99.901
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Driver for Glide capable video boards (such as 3Dfx Voodoo boards).
+Driver for Glide capable video boards (such as 3Dfx Voodoo boards),
+meant for use mainly with Voodoo 1 and Voodoo 2 boards (which don't
+have 2D acceleration).
 
 %description -l pl.UTF-8
-Sterownik dla kart graficznych obsługujących Glide (jak np. karty 3Dfx Voodoo).
+Sterownik dla kart graficznych obsługujących Glide (jak np. karty
+3Dfx Voodoo), przeznaczony głównie dla kart Voodoo 1 i Voodoo 2 (nie
+mających akceleratora 2D).
 
 %prep
 %setup -q -n xf86-video-glide-%{version}
