@@ -2,7 +2,7 @@ Summary:	X.org video driver for Glide capable video boards
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla kart graficznych obsługujących Glide
 Name:		xorg-driver-video-glide
 Version:	1.1.0
-Release:	2
+Release:	3
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-glide-%{version}.tar.bz2
@@ -23,6 +23,7 @@ BuildRequires:	xorg-xserver-server-devel >= 1.0.99.901
 %{?requires_xorg_xserver_videodrv}
 #Requires:	Glide2x (virtual for: Glide_VG/V2/V3(?))
 Requires:	xorg-xserver-server >= 1.0.99.901
+Provides:	xorg-driver-video
 Obsoletes:	X11-driver-glide < 1:7.0.0
 Obsoletes:	XFree86-driver-glide < 1:7.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,8 +34,8 @@ meant for use mainly with Voodoo 1 and Voodoo 2 boards (which don't
 have 2D acceleration).
 
 %description -l pl.UTF-8
-Sterownik dla kart graficznych obsługujących Glide (jak np. karty
-3Dfx Voodoo), przeznaczony głównie dla kart Voodoo 1 i Voodoo 2 (nie
+Sterownik dla kart graficznych obsługujących Glide (jak np. karty 3Dfx
+Voodoo), przeznaczony głównie dla kart Voodoo 1 i Voodoo 2 (nie
 mających akceleratora 2D).
 
 %prep
