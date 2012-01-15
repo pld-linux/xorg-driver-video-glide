@@ -1,14 +1,22 @@
+#
+# Conditional build:
+%bcond_with	glide3	# use glide3x instead of glide2x (drops Voodoo Graphics support)
+#
 Summary:	X.org video driver for Glide capable video boards
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla kart graficznych obsługujących Glide
 Name:		xorg-driver-video-glide
-Version:	1.1.0
-Release:	4
+Version:	1.2.0
+Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-glide-%{version}.tar.bz2
-# Source0-md5:	83a5df9af1efeb077e9f21a7b421a01f
+# Source0-md5:	d96643132bdc7e1234367fd9cbaa600c
 URL:		http://xorg.freedesktop.org/
-BuildRequires:	Glide2x_SDK
+%if %{with glide3}
+BuildRequires:	Glide3x-devel
+%else
+BuildRequires:	Glide2x-devel
+%endif
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -21,7 +29,6 @@ BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
 BuildRequires:	xorg-util-util-macros >= 1.8
 BuildRequires:	xorg-xserver-server-devel >= 1.0.99.901
 %{?requires_xorg_xserver_videodrv}
-#Requires:	Glide2x (virtual for: Glide_VG/V2/V3(?))
 Requires:	xorg-xserver-server >= 1.0.99.901
 Provides:	xorg-driver-video
 Obsoletes:	X11-driver-glide < 1:7.0.0
@@ -47,7 +54,8 @@ mających akceleratora 2D).
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	%{!?with_glide3:ac_cv_lib_glide3x_grGet=no}
 
 %{__make}
 
