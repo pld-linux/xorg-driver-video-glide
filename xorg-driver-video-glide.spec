@@ -5,12 +5,12 @@
 Summary:	X.org video driver for Glide capable video boards
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla kart graficznych obsługujących Glide
 Name:		xorg-driver-video-glide
-Version:	1.2.0
-Release:	2
+Version:	1.2.1
+Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-glide-%{version}.tar.bz2
-# Source0-md5:	d96643132bdc7e1234367fd9cbaa600c
+# Source0-md5:	f7ed58f3bc6b337ac764622a86f4253d
 URL:		http://xorg.freedesktop.org/
 %if %{with glide3}
 BuildRequires:	Glide3x-devel
@@ -19,7 +19,7 @@ BuildRequires:	Glide2x-devel
 %endif
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2.0
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
 BuildRequires:	xorg-proto-fontsproto-devel
